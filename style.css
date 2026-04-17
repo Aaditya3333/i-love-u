@@ -183,14 +183,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
+    flex-wrap: nowrap;
 }
 
 .heart-between {
-    font-size: 50px;
+    font-size: 40px;
     animation: heartbeat 1.5s ease-in-out infinite;
     filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.8));
+    flex-shrink: 0;
 }
 
 @keyframes heartbeat {
@@ -203,8 +204,8 @@ body {
 }
 
 .photo-frame img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 15px;
     display: block;
