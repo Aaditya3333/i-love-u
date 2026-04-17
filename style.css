@@ -135,6 +135,74 @@ body {
     }
 }
 
+/* Photo container styling */
+.photo-container {
+    opacity: 0;
+    transform: scale(0.5) translateY(30px);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.photo-container.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.photo-frame {
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493, #ff0066);
+    border-radius: 20px;
+    box-shadow: 
+        0 0 30px rgba(255, 105, 180, 0.5),
+        0 0 60px rgba(255, 20, 147, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: pulse-frame 2s ease-in-out infinite;
+}
+
+@keyframes pulse-frame {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(255, 105, 180, 0.5),
+            0 0 60px rgba(255, 20, 147, 0.3),
+            inset 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 40px rgba(255, 105, 180, 0.7),
+            0 0 80px rgba(255, 20, 147, 0.5),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.photo-frame img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+.photo-caption {
+    font-size: 18px;
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease 0.5s;
+}
+
+.photo-container.show .photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .word {
@@ -144,5 +212,14 @@ body {
     
     #word2 {
         font-size: 65px;
+    }
+    
+    .photo-frame img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .photo-caption {
+        font-size: 14px;
     }
 }

@@ -1,5 +1,6 @@
 // Animation sequence
 const words = document.querySelectorAll('.word');
+const photoBox = document.getElementById('photoBox');
 const heartsContainer = document.querySelector('.hearts-container');
 
 // Show words from top to bottom with delay
@@ -10,6 +11,12 @@ function animateWords() {
             createSparkles(word);
         }, index * 1000);
     });
+    
+    // Show photo after YOU appears
+    setTimeout(() => {
+        photoBox.classList.add('show');
+        createSparkles(photoBox);
+    }, 3500);
 }
 
 // Create sparkle effects around the word
@@ -51,9 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create floating hearts continuously
     setInterval(createHeart, 800);
     
-    // Restart word animation every 6 seconds
+    // Restart word animation every 8 seconds (includes photo time)
     setInterval(() => {
         words.forEach(word => word.classList.remove('show'));
+        photoBox.classList.remove('show');
         setTimeout(animateWords, 500);
-    }, 6000);
+    }, 8000);
 });
